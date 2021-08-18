@@ -1,0 +1,10 @@
+flask
+flask-sqlalchemy
+sqlalchemy
+pytest
+flask-testing
+flask-httpauth
+psycopg2-binary
+Werkzeug
+pytest
+flask-testing

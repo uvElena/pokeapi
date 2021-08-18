@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  pokeapi-test:
+    build: .
+    command: pytest
+    depends_on:
+      - db-test
+    environment:
+      SQLALCHEMY_DATABASE_URI: 'postgresql+psycopg2://poke:pokepass@db-test/pokeapi'
+
+  db-test:
+    environment:
+      POSTGRES_USER: poke
+      POSTGRES_PASSWORD: pokepass
+      POSTGRES_DB: pokeapi
+    image: postgres:9.6
+
+
