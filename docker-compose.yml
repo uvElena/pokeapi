@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   pokeapi:
-    build: .
+    build: ./api
     depends_on:
       - db
     environment:
