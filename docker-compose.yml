@@ -9,6 +9,14 @@ services:
       SQLALCHEMY_DATABASE_URI: 'postgresql+psycopg2://poke:pokepass@db/pokeapi'
     restart: always
 
+  pokeui:
+    build: ./ui
+    depends_on:
+      - pokeapi
+    ports:
+      - "8000:80"
+    restart: always
+
   db:
     environment:
       POSTGRES_USER: poke
