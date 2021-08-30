@@ -70,9 +70,11 @@ def user_add():
     password = request.json.get('password')
 
     if not username or not password:
+        app.logger.error('No username or password')
         abort(400)
 
     if User.query.filter(User.username == username).first():
+        app.logger.error('The user already exists')
         abort(400)
 
     user = User(
@@ -81,7 +83,6 @@ def user_add():
 
     db.session.add(user)
     db.session.commit()
-
     return jsonify({'username': user.username})
 
 
